@@ -66,10 +66,10 @@ cd task-api
 Create a `.env` file in the root directory (or use the existing one):
 
 ```env
-DATABASE_URL=postgresql+asyncpg://postgres:postgres@db:5432/taskdb
-DATABASE_URL_SYNC=postgresql://postgres:postgres@db:5432/taskdb
-SECRET_KEY=your-secret-key-here-change-this-in-production-min-32-chars
-ALGORITHM=HS256
+DATABASE_URL=XXXXXXXXX
+DATABASE_URL_SYNC=XXXXXXXXXXX
+SECRET_KEY=XXXXXX
+ALGORITHM=
 ACCESS_TOKEN_EXPIRE_MINUTES=30
 REFRESH_TOKEN_EXPIRE_DAYS=7
 ```
