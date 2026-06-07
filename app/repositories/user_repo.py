@@ -17,13 +17,13 @@ async def get_user_by_id(db: AsyncSession, user_id: str) -> User | None:
     result = await db.execute(select(User).where(User.id == user_id))
     return result.scalar_one_or_none()
 
-async def create_user(db: AsyncSession, user: UserCreate) -> User:
+async def create_user(db: AsyncSession, user_data: UserCreate, hashed_password: str) -> User:
     db_user = User(
-        email=user.email,
-        username=user.username,
-        hashed_password=hash_password(user.password),
-        full_name=user.full_name,
+        email=user_data.email,
+        username=user_data.username,
+        hashed_password=hashed_password,   
+        full_name=user_data.full_name,
     )
-    db.add(user)
+    db.add(db_user)
     await db.flush()
     return db_user
