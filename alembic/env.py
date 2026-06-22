@@ -1,7 +1,7 @@
 from logging.config import fileConfig
 from app.core.config import get_settings
 from app.core.database import Base
-from app.models import User, Task  
+from app.models import User, Task
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 

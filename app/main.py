@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import get_settings
-from  app.api.v1.endpoints  import auth
+from app.api.v1.endpoints import auth
 
 settings = get_settings()
 
@@ -20,7 +20,7 @@ def create_app() -> FastAPI:
         allow_headers=["*"],
     )
     
-    app.include_router(auth.router, prefix=f"{settings.API_V1_PREFIX}/auth",tags=["auth"])
+    app.include_router(auth.router, prefix=f"{settings.API_V1_PREFIX}/auth", tags=["auth"])
     return app
 
 app = create_app()
@@ -33,9 +33,9 @@ async def root():
         "version": "1.0.0",
         "docs": f"{settings.API_V1_PREFIX}/docs",
     }
+
 @app.get("/api/v1/health")
 async def health_check():
     return {
         "status": "healthy",
     }
-
